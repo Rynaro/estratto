@@ -1,0 +1,37 @@
+layout:
+  multi-register: true
+  prefix: 0..1
+  registers:
+    - register: '01'
+      fields:
+        - name: name
+          range: 2..12
+          type: String
+          formats:
+            strip: true
+        - name: gifted_at
+          range: 13..22
+          type: Date
+          formats:
+            format: '%Y-%m-%d'
+        - name: value
+          range: 50..55
+          type: Float
+        - name: buyed_times
+          range: 56..61
+          type: Integer
+    - register: '02'
+      fields:
+        - name: value
+          range: 2..6
+          type: Float
+          formats:
+            precision: 2
+        - name: generated_at
+          range: 7..14
+          type: Date
+          formats:
+            format: '%Y%m%d'
+        - name: description
+          range: 15..29
+          type: String

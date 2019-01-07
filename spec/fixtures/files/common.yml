@@ -1,0 +1,10 @@
+layout:
+  name: 'common_partner_system'
+  multi-register: true
+  prefix: 0..1
+  registers:
+    - register: '01'
+      fields:
+        - name: first_column
+          range: 2..4
+          type: Integer

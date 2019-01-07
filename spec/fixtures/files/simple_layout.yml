@@ -1,0 +1,23 @@
+layout:
+  name: 'simple-layout'
+  multi-register: true
+  prefix: 0..1
+  registers:
+    - register: '01'
+      fields:
+        - name: name
+          range: 2..12
+          type: String
+        - name: product_id
+          range: 13..21
+          type: Integer
+    - register: '02'
+      fields:
+        - name: price
+          range: 2..6
+          type: Float
+          formats:
+            precision: 2
+        - name: product_id
+          range: 3..10
+          type: Integer
