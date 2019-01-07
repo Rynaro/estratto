@@ -1,11 +1,9 @@
-RSpec.describe Estratto::Parser do
-  subject { described_class.new(file_path, register_layout) }
-  let(:register_layout) { Estratto::Layout::MultiRegister.new(reader) }
-  let(:reader) { Estratto::Layout::Reader.new(layout_path) }
+RSpec.describe Estratto::Document do
+  subject { described_class }
   let(:layout_path) { 'spec/fixtures/files/complete_layout.yml' }
   let(:file_path) { 'spec/fixtures/files/data_to_parse.txt' }
 
-  describe '#perform' do
+  describe '#process' do
     let(:data_refined) do
       [
         {
@@ -28,7 +26,7 @@ RSpec.describe Estratto::Parser do
       ]
     end
     it do
-      expect(subject.perform).to eq(data_refined)
+      expect(subject.process(file: file_path, layout: layout_path)).to eq(data_refined)
     end
   end
 end

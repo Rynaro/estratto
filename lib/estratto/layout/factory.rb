@@ -1,3 +1,4 @@
+require_relative 'reader'
 require_relative 'multi_register'
 
 module Estratto
@@ -5,7 +6,8 @@ module Estratto
     class LayoutUndefinedError < StandardError; end
     class Factory
 
-      def self.fabricate(reader)
+      def self.fabricate(layout_path)
+        reader = Reader.new(layout_path)
         if reader.multiregister?
           MultiRegister.new(reader)
         else
