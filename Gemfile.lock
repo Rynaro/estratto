@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    estratto (0.1.0)
+    estratto (1.0.0)
 
 GEM
   remote: https://rubygems.org/
