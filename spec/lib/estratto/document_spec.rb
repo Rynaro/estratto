@@ -13,7 +13,7 @@ RSpec.describe Estratto::Document do
           buyed_times: 123
         },
         {
-          name:"MARY JONES",
+          name: "MARY JONES",
           gifted_at: Date.new(2018, 12, 25),
           value: 500.0,
           buyed_times: 12345

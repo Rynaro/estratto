@@ -42,7 +42,7 @@ RSpec.describe Estratto::Layout::Reader do
       ]
     end
 
-    it { puts subject.registers; expect(subject.registers).to eq(registers) }
+    it { expect(subject.registers).to eq(registers) }
   end
 
   describe '#multiregister?' do
