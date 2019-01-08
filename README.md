@@ -62,6 +62,25 @@ layout:
           type: String
 ```
 
+And the out will be a array of hashes reflection of your columns:
+
+```ruby
+[
+    {
+        name: 'Jotaro Kujo',
+        stand: 'Star Platinum'
+    },
+    {
+        name: 'Giorno Giovanna',
+        stand: 'Golden Experience Requiem'
+    },
+    {
+        name: 'Jobin Higashikata',
+        stand: 'Speed King'
+    }
+]
+```
+
 The structure follows the strict directive
 ```yaml
 layout:
