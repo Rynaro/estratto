@@ -10,7 +10,7 @@
 ## Motivation
 
 In various scenarios the data processment is a crucial step of a integration with partner systems, or data storage. But the task to create parsing and import data from these text format is boring, and causing code duplication in every code project.
-This project borns to help developers to reduce their time spent in this task, or creating a total delegation scenario to other team responsabilities.
+This project borns to help developers to reduce the time spent in this task, or creating a total delegation scenario to other team responsabilities.
 
 ## Installation
 
@@ -159,15 +159,15 @@ Actually we don't have any formats for Integer. :)
 ```ruby
 #raw_data
 '000123'
-# with strip clause
+# coerced
 123 
 #raw_data
 '123'
-# with strip clause
+# coerced
 123 
 #raw_data
 'a'
-# with strip clause
+# coerced
 0 
 ```
 
