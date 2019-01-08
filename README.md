@@ -1,9 +1,10 @@
 # Estratto
 
-### TODO: Write a super README
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/estratto`. To experiment with that code, run `bin/console` for an interactive prompt.
+[![Build Status](https://travis-ci.com/Rynaro/estratto.svg?branch=master)](https://travis-ci.com/Rynaro/estratto)
 
-TODO: Delete this and the text above, and describe your gem
+[![Coverage Status](https://coveralls.io/repos/github/Rynaro/estratto/badge.svg?branch=master)](https://coveralls.io/github/Rynaro/estratto?branch=master)
+
+### TODO: Write a super README
 
 ## Installation
 
@@ -23,7 +24,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+TODO: Comming soon
 
 ## Development
 
@@ -33,7 +34,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/estratto.
+Bug reports and pull requests are welcome on GitHub at https://github.com/Rynaro/estratto.
 
 ## License
 
