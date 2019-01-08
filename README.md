@@ -5,7 +5,12 @@
 [![Coverage Status](https://coveralls.io/repos/github/Rynaro/estratto/badge.svg?branch=master)](https://coveralls.io/github/Rynaro/estratto?branch=master)
 [![Maintainability](https://api.codeclimate.com/v1/badges/46532b90e850401fce72/maintainability)](https://codeclimate.com/github/Rynaro/estratto/maintainability)
 
-### TODO: Write a super README
+> Estratto is a easy to handle parser based on YAML templating engine. Creating a easy interface for developers, and non developers to extract data from fixed width files
+
+## Motivation
+
+In various scenarios the data processment is a crucial step of a integration with partner systems, or data storage. But the task to create parsing and import data from these text format is boring, and causing code duplication in every code project.
+This project borns to help developers to reduce their time spent in this task, or creating a total delegation scenario to other team responsabilities.
 
 ## Installation
 
@@ -24,6 +29,16 @@ Or install it yourself as:
     $ gem install estratto
 
 ## Usage
+
+**Estratto** works with simple input of _data to parse file_ and a _yaml layout equivalent_.
+
+Example of a default call for parsing:
+
+```ruby
+Estratto::Document.process(file: 'path/to/data.txt', layout: 'path/to/layout.yml')
+```
+
+### Layout specifications
 
 TODO: Comming soon
 
