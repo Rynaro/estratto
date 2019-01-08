@@ -40,7 +40,204 @@ Estratto::Document.process(file: 'path/to/data.txt', layout: 'path/to/layout.yml
 
 ### Layout specifications
 
-TODO: Comming soon
+Fixed width files is sometimes ~always~ painful for human reading, and the layout manual comes in a very useful pdf or spreasheet format.
+
+Here, we'll try to made things fun again, or less painfull. :joy:
+
+The base layout for YAML file is:
+
+```yaml
+layout:
+  name: 'jojo stand users'
+  multi-register: true
+  prefix: 0..1
+  registers:
+    - register: '01'
+      fields:
+        - name: name
+          range: 2..45
+          type: String
+        - name: stand
+          range: 46..75
+          type: String
+```
+
+The structure follows the strict directive
+```yaml
+layout:
+    (base configuration)
+    registers:
+        (layouts)
+```
+
+Actually **Estratto** supports these types of fixed width  layouts:
+
+- Batch prefix based registers
+- Mono layout based register _(development)_
+
+### Type Coercion
+
+**Estratto** supports type coercion, with some perks called _formats_, on layout file.
+
+Data type supported to handle in **Estratto**
+
+- String
+- Integer
+- Float
+- DateTime
+- Date
+
+Default data type in fields is `String`, if no one type is setted in field list register.
+
+Registers fields list always respect this base structure:
+
+```yaml
+  fields:
+    - name: name
+      range: 2..12
+      type: String
+      formats:
+        strip: true
+```
+
+`name` is your field identification of field, this value will be your symbol in hashed parsed data
+
+`range` is where data is inside the file. (First index is 0)
+
+`type` data type to be coerced
+
+`formats` receives a specific configuration for data type. Here we can format Strings, and adjust precision for unformatted Float data.
+
+### Formats
+
+Formats is the resource for deal with some "surprises" that this type of file can provide to us. Like, super large string fields that has a hug blank space, DateTime with suspicious formatting, or Float without any decimal point, but the manual description shows _"Decimal(15, 2)"_
+
+#### String
+
+##### strip
+
+Works like common ruby String strip method
+
+```yaml
+strip: true
+```
+
+Output example:
+
+```ruby
+#raw_data
+'Hierophant Green         '
+# with strip clause
+'Hierophant Green' 
+```
+
+#### Integer
+
+Simple integer values converter. Useful in cases that you need to deal with ids.
+
+Actually we don't have any formats for Integer. :)
+
+```ruby
+#raw_data
+'000123'
+# with strip clause
+123 
+#raw_data
+'123'
+# with strip clause
+123 
+#raw_data
+'a'
+# with strip clause
+0 
+```
+
+#### Float
+
+Float is one of most important types here. The fixed width files always respect the _non logical_ format to deliver information.
+
+```yaml
+precision: <integer>
+```
+
+Examples:
+
+```yaml
+precision: 2
+```
+
+```ruby
+#raw data
+'12345'
+# with precision
+123.45
+```
+
+```yaml
+precision: 2
+```
+
+```ruby
+#raw data
+'12345'
+# with precision
+12.345
+```
+
+
+```yaml
+comma_format: <boolean>
+```
+
+Examples:
+
+```yaml
+comma_format: true
+```
+
+```ruby
+#raw data
+'123,45'
+# with comma formats
+123.45
+```
+
+
+#### DateTime and Date
+
+The `DateTime` and `Date` has the same formats attributes. But the difference, one shows DateTime format, and other always respect Date output
+
+```yaml
+format: <ruby strptime format pattern>
+```
+
+Examples
+
+```yaml
+format: '%Y%m%d'
+```
+
+```ruby
+#raw data
+'20180101'
+# with comma formats
+#<DateTime: 2018-01-01T00:00:00+00:00 ...>
+```
+
+```yaml
+format: '%d/%m/%Y'
+```
+
+```ruby
+#raw data
+'01/01/2018'
+# with comma formats
+#<DateTime: 2018-01-01T00:00:00+00:00 ...>
+```
+
+## Tests
+
+Simple `rake spec`
 
 ## Development
 
