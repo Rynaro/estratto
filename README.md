@@ -92,7 +92,7 @@ layout:
 Actually **Estratto** supports these types of fixed width  layouts:
 
 - Batch prefix based registers
-- Mono layout based register _(development)_
+- Mono layout based registers _(development)_
 
 ### Type Coercion
 
@@ -129,7 +129,7 @@ Registers fields list always respect this base structure:
 
 ### Formats
 
-Formats is the resource for deal with some "surprises" that this type of file can provide to us. Like, super large string fields that has a hug blank space, DateTime with suspicious formatting, or Float without any decimal point, but the manual description shows _"Decimal(15, 2)"_
+Formats is the resource for deal with some "surprises" that this type of file can provide to us. Like, super large string fields that has a huge blank space, DateTime with suspicious formatting, or Float without any decimal point, but the manual description shows _"Decimal(15, 2)"_
 
 #### String
 
@@ -175,6 +175,8 @@ Actually we don't have any formats for Integer. :)
 
 Float is one of most important types here. The fixed width files always respect the _non logical_ format to deliver information.
 
+##### precision
+
 ```yaml
 precision: <integer>
 ```
@@ -193,7 +195,7 @@ precision: 2
 ```
 
 ```yaml
-precision: 2
+precision: 3
 ```
 
 ```ruby
@@ -203,6 +205,7 @@ precision: 2
 12.345
 ```
 
+##### comma_format
 
 ```yaml
 comma_format: <boolean>
@@ -225,6 +228,9 @@ comma_format: true
 #### DateTime and Date
 
 The `DateTime` and `Date` has the same formats attributes. But the difference, one shows DateTime format, and other always respect Date output
+
+
+##### format
 
 ```yaml
 format: <ruby strptime format pattern>
