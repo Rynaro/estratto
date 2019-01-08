@@ -6,6 +6,8 @@ require_relative 'string'
 
 module Estratto
   module Data
+    class InvalidCoercionType < StandardError; end
+
     class Coercer
       attr_reader :data, :type, :formats
 
@@ -21,6 +23,8 @@ module Estratto
 
       def target_coercer
         Object.const_get("Estratto::Data::#{type}").new(data, formats)
+      rescue NameError
+        raise InvalidCoercionType
       end
     end
   end

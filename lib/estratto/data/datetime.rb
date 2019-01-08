@@ -8,11 +8,11 @@ module Estratto
         parse_datetime_from
       end
 
+      private
+
       def parse_datetime_from
         ::DateTime.strptime(data, datetime_format)
       end
-
-      private
 
       def datetime_format
         formats.dig('format') || '%Y-%m-%d'
