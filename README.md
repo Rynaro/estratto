@@ -1,5 +1,6 @@
 # Estratto
 
+[![Gem Version](https://badge.fury.io/rb/estratto.svg)](https://badge.fury.io/rb/estratto)
 [![Build Status](https://travis-ci.com/Rynaro/estratto.svg?branch=master)](https://travis-ci.com/Rynaro/estratto)
 [![Coverage Status](https://coveralls.io/repos/github/Rynaro/estratto/badge.svg?branch=master)](https://coveralls.io/github/Rynaro/estratto?branch=master)
 [![Maintainability](https://api.codeclimate.com/v1/badges/46532b90e850401fce72/maintainability)](https://codeclimate.com/github/Rynaro/estratto/maintainability)
