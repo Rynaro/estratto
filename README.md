@@ -42,7 +42,7 @@ Estratto::Document.process(file: 'path/to/data.txt', layout: 'path/to/layout.yml
 
 Fixed width files is sometimes ~always~ painful for human reading, and the layout manual comes in a very useful pdf or spreasheet format.
 
-Here, we'll try to made things fun again, or less painfull. :joy:
+Here, we'll try to made things fun again, or less painful. :joy:
 
 The base layout for YAML file is:
 
