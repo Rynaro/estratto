@@ -5,6 +5,8 @@
 [![Coverage Status](https://coveralls.io/repos/github/Rynaro/estratto/badge.svg?branch=master)](https://coveralls.io/github/Rynaro/estratto?branch=master)
 [![Maintainability](https://api.codeclimate.com/v1/badges/46532b90e850401fce72/maintainability)](https://codeclimate.com/github/Rynaro/estratto/maintainability)
 
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/Rynaro/estratto.svg?columns=all)](https://waffle.io/Rynaro/estratto)
+
 > Estratto is a easy to handle parser based on YAML templating engine. Creating a easy interface for developers, and non developers to extract data from fixed width files
 
 ## Motivation
