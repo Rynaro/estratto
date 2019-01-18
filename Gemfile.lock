@@ -2,10 +2,12 @@ PATH
   remote: .
   specs:
     estratto (1.0.0)
+      charlock_holmes
 
 GEM
   remote: https://rubygems.org/
   specs:
+    charlock_holmes (0.7.6)
     coderay (1.1.2)
     coveralls (0.8.22)
       json (>= 1.8, < 3)
