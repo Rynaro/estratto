@@ -64,7 +64,7 @@ layout:
           type: String
 ```
 
-And the out will be a array of hashes reflection of your columns:
+And the output will be a array of hashes reflection of your columns:
 
 ```ruby
 [
@@ -95,6 +95,12 @@ Actually **Estratto** supports these types of fixed width  layouts:
 
 - Batch prefix based registers
 - Mono layout based registers _(development)_
+
+
+### UTF-8 Conversion
+
+Estratto makes use of [CharlockHolmes](https://github.com/brianmario/charlock_holmes) gem to detect the file content encoding and convert it to UTF-8.
+This approach prevents invalid characters from being present in the output.
 
 ### Type Coercion
 
