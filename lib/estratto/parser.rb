@@ -1,4 +1,5 @@
 require_relative 'register'
+require_relative 'content'
 
 module Estratto
   class Parser
@@ -10,16 +11,15 @@ module Estratto
     end
 
     def perform
-      @data ||= raw_data.map do |line|
+      @data ||= raw_content.map do |line|
         register_layout = layout.register_fields_for(line[layout.prefix_range])
         next if register_layout.nil?
         Register.new(line, register_layout).refine
       end.compact
     end
 
-    def raw_data
-      @raw_data ||= File.open(file_path, 'r')
+    def raw_content
+      @raw_data = Content.for(file_path)
     end
-
   end
 end
