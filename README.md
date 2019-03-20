@@ -102,7 +102,7 @@ Actually **Estratto** supports these types of fixed width  layouts:
 Estratto makes use of [CharlockHolmes](https://github.com/brianmario/charlock_holmes) gem to detect the file content encoding and convert it to UTF-8.
 This approach prevents invalid characters from being present in the output.
 
-CharlockHolmes uses [ICU](http://site.icu-project.org) for charset detection. And you need libicu in yout environment.
+CharlockHolmes uses [ICU](http://site.icu-project.org) for charset detection. And you need libicu in your environment.
 
 #### Linux
 
