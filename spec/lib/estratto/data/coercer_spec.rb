@@ -22,6 +22,17 @@ RSpec.describe Estratto::Data::Coercer do
         )
       end
     end
+
+    context 'invalid coercion type' do
+      let(:data) { '0xC' }
+      let(:type) { 'Octal' }
+      it do
+        expect{ subject.build }.to raise_error(
+          Estratto::Data::DataCoercionError,
+          'Error when coercing 0xC on line 1, raising: Does not exists coercer class for Octal'
+        )
+      end
+    end
   end
 
   describe '#target_coercer' do

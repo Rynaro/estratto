@@ -28,7 +28,7 @@ module Estratto
       def target_coercer
         Object.const_get("Estratto::Data::#{type}").new(data, formats)
       rescue NameError
-        raise InvalidCoercionType
+        raise InvalidCoercionType, "Does not exists coercer class for #{type}"
       end
     end
   end
