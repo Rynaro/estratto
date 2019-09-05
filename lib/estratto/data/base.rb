@@ -13,7 +13,6 @@ module Estratto
       def coerce
         raise TypeCoercionNotFound
       end
-
     end
   end
 end

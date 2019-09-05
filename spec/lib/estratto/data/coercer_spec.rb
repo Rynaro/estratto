@@ -1,12 +1,26 @@
 RSpec.describe Estratto::Data::Coercer do
-  subject { described_class.new(data: data, type: type, formats: formats) }
+  subject { described_class.new(data: data, index: index, type: type, formats: formats) }
   let(:data) { 'STAR PLATINUM' }
+  let(:index) { 1 }
   let(:type) { 'String' }
   let(:formats) { {} }
 
   describe '#build' do
-    it do
-      expect(subject.build).to eq('STAR PLATINUM')
+    context 'valid coercion build' do
+      it do
+        expect(subject.build).to eq('STAR PLATINUM')
+      end
+    end
+
+    context 'invalid coercion build' do
+      let(:data) { '20190910' }
+      let(:type) { 'Date' }
+      it do
+        expect{ subject.build }.to raise_error(
+          Estratto::Data::DataCoercionError,
+          'Error when coercing 20190910 on line 1, raising: invalid date'
+        )
+      end
     end
   end
 

@@ -1,5 +1,5 @@
 RSpec.describe Estratto::Register do
-  subject { described_class.new(line, layout) }
+  subject { described_class.new(line, index, layout) }
   let(:line) { '42FIREFOX    57192     0.6' }
 
   let(:layout) do
@@ -9,6 +9,8 @@ RSpec.describe Estratto::Register do
       { 'name' => 'acceptance', 'range' => '18..25', 'type' => 'Float' }
     ]
   end
+
+  let(:index) { 1 }
 
   describe '#refine' do
     it do
