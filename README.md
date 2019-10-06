@@ -282,6 +282,28 @@ format: '%d/%m/%Y'
 #<DateTime: 2018-01-01T00:00:00+00:00 ...>
 ```
 
+## General Formats Properties
+
+Sometimes we need to deal with some general patterns on third-party files. Like lacks of informations, or some unexpected exported data pattern.
+
+#### Allow Empty
+
+The `allow_empty?` property was designed to deal with randomic unexpected data exported from third-party. Like `DateTime` field that has ``%Y%m%d` format, but in third-party file, some lines cames with `        `, or `00000000`.
+
+The common return when `allow_empty?` was marked on field, is `nil`.
+
+##### Example
+
+```yaml
+  fields:
+    - name: birthdate
+      range: 2..10
+      type: DateTime
+      formats:
+        allow_empty?: true
+        format: '%d/%m/%Y'
+```
+
 ## Tests
 
 Simple `rake spec`
