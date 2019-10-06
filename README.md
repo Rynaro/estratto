@@ -169,7 +169,7 @@ Output example:
 #raw_data
 'Hierophant Green         '
 # with strip clause
-'Hierophant Green' 
+'Hierophant Green'
 ```
 
 #### Integer
@@ -182,15 +182,15 @@ Actually we don't have any formats for Integer. :)
 #raw_data
 '000123'
 # coerced
-123 
+123
 #raw_data
 '123'
 # coerced
-123 
+123
 #raw_data
 'a'
 # coerced
-0 
+0
 ```
 
 #### Float
@@ -280,6 +280,28 @@ format: '%d/%m/%Y'
 '01/01/2018'
 # with comma formats
 #<DateTime: 2018-01-01T00:00:00+00:00 ...>
+```
+
+## General Formats Properties
+
+Sometimes we need to deal with some general patterns on third-party files. Like lacks of informations, or some unexpected exported data pattern.
+
+#### Allow Empty
+
+The `allow_empty?` property was designed to deal with randomic unexpected data exported from third-party. Like `DateTime` field that has ``%Y%m%d` format, but in third-party file, some lines cames with `        `, or `00000000`.
+
+The common return when `allow_empty?` was marked on field, is `nil`.
+
+##### Example
+
+```yaml
+  fields:
+    - name: birthdate
+      range: 2..10
+      type: DateTime
+      formats:
+        allow_empty?: true
+        format: '%d/%m/%Y'
 ```
 
 ## Tests
