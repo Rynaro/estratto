@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    estratto (1.0.3)
+    estratto (1.0.4)
       charlock_holmes
 
 GEM
@@ -62,4 +62,4 @@ DEPENDENCIES
   rspec (~> 3.0)
 
 BUNDLED WITH
-   2.0.1
+   2.0.2
