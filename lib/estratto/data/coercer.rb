@@ -21,14 +21,20 @@ module Estratto
       def build
         target_coercer.coerce
       rescue StandardError => error
-        raise DataCoercionError,
-              "Error when coercing #{data} on line #{index}, raising: #{error.message}"
+        unless allow_empty?
+          raise DataCoercionError,
+                "Error when coercing #{data} on line #{index}, raising: #{error.message}"
+        end
       end
 
       def target_coercer
         Object.const_get("Estratto::Data::#{type}").new(data, formats)
       rescue NameError
         raise InvalidCoercionType, "Does not exists coercer class for #{type}"
+      end
+
+      def allow_empty?
+        formats.dig(:allow_empty?)
       end
     end
   end
