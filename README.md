@@ -169,7 +169,7 @@ Output example:
 #raw_data
 'Hierophant Green         '
 # with strip clause
-'Hierophant Green' 
+'Hierophant Green'
 ```
 
 #### Integer
@@ -182,15 +182,15 @@ Actually we don't have any formats for Integer. :)
 #raw_data
 '000123'
 # coerced
-123 
+123
 #raw_data
 '123'
 # coerced
-123 
+123
 #raw_data
 'a'
 # coerced
-0 
+0
 ```
 
 #### Float
