@@ -292,6 +292,8 @@ The `allow_empty?` property was designed to deal with randomic unexpected data e
 
 The common return when `allow_empty?` was marked on field, is `nil`.
 
+_Tip: `allow_empty?` could be ommitted when you not need a data saving_
+
 ##### Example
 
 ```yaml
