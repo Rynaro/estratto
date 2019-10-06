@@ -35,7 +35,6 @@ module Estratto
       def precision
         formats['precision'].to_i || 2
       end
-
     end
   end
 end
