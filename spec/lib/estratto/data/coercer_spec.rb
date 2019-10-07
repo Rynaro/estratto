@@ -37,7 +37,7 @@ RSpec.describe Estratto::Data::Coercer do
     context 'allow empty data from invalid data coerce' do
       let(:data) { '        ' }
       let(:type) { 'DateTime' }
-      let(:formats) { { allow_empty?: true } }
+      let(:formats) { { 'allow_empty' => true } }
       it do
         expect(subject.build).to be_nil
       end

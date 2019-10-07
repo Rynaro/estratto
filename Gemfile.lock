@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    estratto (1.0.4)
+    estratto (1.0.5)
       charlock_holmes
 
 GEM
