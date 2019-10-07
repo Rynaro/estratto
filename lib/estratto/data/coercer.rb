@@ -34,7 +34,7 @@ module Estratto
       end
 
       def allow_empty?
-        formats.dig(:allow_empty?)
+        formats.dig('allow_empty')
       end
     end
   end
