@@ -11,11 +11,11 @@ module Estratto
     end
 
     def perform
-      @data ||= raw_content.map.with_index do |line, index|
+      @data ||= raw_content.each_with_index.map do |line, index|
         register_layout = layout.register_fields_for(line[layout.prefix_range])
         next if register_layout.nil?
         Register.new(line, index, register_layout).refine
-      end.compact
+      end.reject{ |line| line.nil? }
     end
 
     def raw_content
