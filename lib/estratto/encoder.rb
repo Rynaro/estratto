@@ -11,7 +11,7 @@ module Estratto
     def encode
       content.lazy.map do |line|
         charset = detect(line)
-        CharlockHolmes::Converter.convert(line, charset[:encoding], 'UTF-8')
+        CharlockHolmes::Converter.convert(line, charset[:encoding], 'UTF-8').chomp
       end
     end
 
