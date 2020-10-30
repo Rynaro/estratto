@@ -30,7 +30,7 @@ RSpec.describe Estratto::Parser do
       end
 
       it "returns an Enumerator::Lazy object" do
-        expect(subject.perform).to be_a Enumerator::Lazy
+        expect(subject.perform).to be_a Estratto::Helpers::RegisterEnumerator
       end
 
       it "returns the right content" do
