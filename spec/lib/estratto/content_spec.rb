@@ -10,8 +10,13 @@ RSpec.describe Estratto::Content do
         "025000020181225JUSTDESCRIPTION"
       ]
     end
-    it do
-      expect(described_class.for(file_path)).to eq(expected_content)
+
+    it "returns an Enumerator::Lazy object" do
+      expect(described_class.for(file_path)).to be_a Enumerator::Lazy
+    end
+
+    it "returns the right content" do
+      expect(described_class.for(file_path).to_a).to match_array expected_content
     end
   end
 end
