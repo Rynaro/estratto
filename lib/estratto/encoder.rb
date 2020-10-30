@@ -9,13 +9,16 @@ module Estratto
     end
 
     def encode
-      CharlockHolmes::Converter.convert(content, encoding, 'UTF-8')
+      content.lazy.map do |line|
+        charset = detect(line)
+        CharlockHolmes::Converter.convert(line, charset[:encoding], 'UTF-8').chomp
+      end
     end
 
     private
 
-    def encoding
-      CharlockHolmes::EncodingDetector.detect(content)[:encoding]
+    def detect(line)
+      CharlockHolmes::EncodingDetector.detect(line)
     end
   end
 end

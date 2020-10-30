@@ -1,5 +1,5 @@
-require_relative 'register'
 require_relative 'content'
+require_relative 'helpers/register_enumerator'
 
 module Estratto
   class Parser
@@ -11,11 +11,7 @@ module Estratto
     end
 
     def perform
-      @data ||= raw_content.map.with_index do |line, index|
-        register_layout = layout.register_fields_for(line[layout.prefix_range])
-        next if register_layout.nil?
-        Register.new(line, index, register_layout).refine
-      end.compact
+      @data ||= Helpers::RegisterEnumerator.new(raw_content, layout)
     end
 
     def raw_content
