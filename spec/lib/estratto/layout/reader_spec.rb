@@ -1,6 +1,7 @@
 RSpec.describe Estratto::Layout::Reader do
-  subject { described_class.new(file_path) }
-  let(:file_path) { 'spec/fixtures/files/common.yml' }
+  subject { described_class.new(template_source) }
+
+  let(:template_source) { 'spec/fixtures/files/common.yml' }
 
   describe '#layout' do
     let(:layout_name) { 'common_partner_system' }
@@ -11,17 +12,47 @@ RSpec.describe Estratto::Layout::Reader do
   end
 
   describe '#template' do
-    context 'layout file found' do
+    context 'when given a Hash as argument' do
+      let(:template_source) do
+        {
+          layout: {
+            :'multi-register' => true,
+            name: 'common_partner_system',
+            prefix: '0..1',
+            registers: [
+              {
+                register: 01,
+                fields:[
+                  {
+                    name: 'first_column',
+                    range: '2..4',
+                    type: 'Integer'
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      end
+
       it do
         expect(subject.template).not_to be_empty
       end
     end
 
-    context 'layout file not found' do
-      let(:file_path) { 'spec/fixtures/files/unexistent.yml' }
+    context "when given a file path as argument" do
+      context 'layout file found' do
+        it do
+          expect(subject.template).not_to be_empty
+        end
+      end
 
-      it do
-        expect{ subject.template }.to raise_error(Errno::ENOENT)
+      context 'layout file not found' do
+        let(:template_source) { 'spec/fixtures/files/unexistent.yml' }
+
+        it do
+          expect{ subject.template }.to raise_error(Errno::ENOENT)
+        end
       end
     end
   end
